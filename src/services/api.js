@@ -11,3 +11,11 @@ export const getDocument = async (page = 0) => {
 export const createDocument = async (codigo, titulo, categoria, processoId, arquivo) => {
   return api.post(`/api/documento`, {codigo, titulo, categoria, processoId, arquivo}, { headers: { "Content-Type": "multipart/form-data" }});
 };
+
+export const findDocumentById = async (id) => {
+  return api.get(`/api/documento/${id}`);
+};
+
+export const findFileById = async (arquivoId) => {
+  return api.get(`/api/documento/${arquivoId}/download`);
+};
