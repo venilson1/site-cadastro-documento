@@ -5,11 +5,13 @@ import { useState } from 'react';
 import InputText from '../components/Input/InputText';
 import SelectText from '../components/Input/SelectText';
 import Copyright from '../Util/Copyright';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { createDocument } from '../services/api';
 import { useSnackbar } from 'notistack';
 
 export default function CreateDocumentPage() {
+  const navigate = useNavigate();
+
   const { enqueueSnackbar } = useSnackbar();
 
   const [, setOpenSnack] = useState(false);
@@ -34,7 +36,11 @@ export default function CreateDocumentPage() {
     const file = data.get('file');
 
     try{
-      await createDocument(code, title, category, process, file);
+      var response = await createDocument(code, title, category, process, file);
+      var document = response.data;
+
+      navigate(`/documento/${document.id}`);
+      
     }
     catch(error){
 
