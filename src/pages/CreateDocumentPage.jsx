@@ -40,15 +40,9 @@ export default function CreateDocumentPage() {
 
       var erros = error.response.data.errors
 
-      console.log(erros);
-
-      console.log(Object.keys(erros).length)
-
       Object.keys(erros).forEach(el => {
         handleClickSnack('error', erros[el][0]);
       })
-
-      //setStatusError(error);
     }
   };
 
