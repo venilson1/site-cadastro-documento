@@ -8,7 +8,7 @@ export default function NavAppBar() {
     
     return (
         <AppBar sx={{background: 'black', color: 'white'}}>
-            <Container>
+            <Container maxWidth={true}>
                 <Toolbar>
                     <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
                         Cadatro de Documentos

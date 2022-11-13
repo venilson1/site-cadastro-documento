@@ -37,30 +37,36 @@ export default function DocumentById() {
   return (
     <Box>
         {isError ? 
-        <Typography variant='h4' sx={{marginY: 4, fontWeight: 'bold'}}>O Id {id} não foi encontrado</Typography>
-        : ''}
-      <Box sx={{ height: '68vh', width: '100%'
-        }}>
-          <Grid item xs={12} md={6}>
-            {Object.keys(document).map((el, i) => {
-              return (
-                <List key={i}>
-                  <ListItem>
-                    <Typography sx={{  fontWeight: 'bold' }} variant="h6" component="div">
-                      {el} :
-                    </Typography>
-                    <Typography sx={{ ml: 2, color: 'gray'  }} variant="h6" component="div">
-                      {document[el]}
-                    </Typography>
-                  </ListItem>
-                </List>
-              )
-            })}
-            <Button variant="contained" color="secondary">
-              <a style={{textDecoration: 'none', color: 'white'}} href={`${api.defaults.baseURL}/api/documento/${document.arquivoId}/download`} download>Download do arquivo</a>
-            </Button>
-        </Grid>
-      </Box>
+        <Typography variant='h4' sx={{ fontWeight: 'bold', color: 'red'}}>O id #<span style={{textDecoration: 'underline'}}>{id}</span> não foi encontrado</Typography>
+        : render()}
     </Box>
   )
+
+    function render(){
+        return (
+        <Box sx={{ height: '68vh', width: '100%'}}>
+            <Grid item xs={12} md={6}>
+            {Object.keys(document).map((el, i) => {
+                return (
+                <List key={i}>
+                    <ListItem>
+                    <Typography sx={{  fontWeight: 'bold' }} variant="h6" component="div">
+                        {el} :
+                    </Typography>
+                    <Typography sx={{ ml: 2, color: 'gray'  }} variant="h6" component="div">
+                        {document[el]}
+                    </Typography>
+                    </ListItem>
+                </List>
+                )
+            })}
+            <Button variant="contained" color="secondary">
+                <a style={{textDecoration: 'none', color: 'white'}} href={`${api.defaults.baseURL}/api/documento/${document.arquivoId}/download`} download>Download do arquivo</a>
+            </Button>
+            </Grid>
+        </Box>
+        ) 
+   }
 }
+
+
