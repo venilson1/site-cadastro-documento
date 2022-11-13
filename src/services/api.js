@@ -4,6 +4,7 @@ export const api = axios.create({
   baseURL: 'http://localhost:5189'
 })
 
+
 export const getDocument = async (page = 0) => {
   return api.get(`api/documento?page=${page}`);
 };
