@@ -5,8 +5,8 @@ export const api = axios.create({
 })
 
 
-export const getDocument = async (page = 0) => {
-  return api.get(`api/documento?page=${page}`);
+export const getDocument = async () => {
+  return api.get(`api/documento`);
 };
 
 export const createDocument = async (codigo, titulo, categoria, processoId, arquivo) => {

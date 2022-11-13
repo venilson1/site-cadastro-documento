@@ -10,7 +10,6 @@ export default function DocumentById() {
     let { id } = useParams();
 
     const [document, setDocument] = useState({});
-    const [file, setFile] = useState("");
     const [isLoading, setIsLoading] = useState(true);
     const [isError, setError] = useState(false);
 
@@ -27,12 +26,6 @@ export default function DocumentById() {
             }
         })();
     }, []);
-
-    const onDownload = () => {
-      const link = document.createElement("a");
-      link.href = `${api.defaults.baseURL}/api/documento/${document.arquivoId}/download`
-      link.click();
-    };
 
   return (
     <Box>
