@@ -4,7 +4,6 @@ import Button from '@mui/material/Button';
 import { useState } from 'react';
 import InputText from '../components/Input/InputText';
 import SelectText from '../components/Input/SelectText';
-import Copyright from '../Util/Copyright';
 import { Link, useNavigate } from 'react-router-dom';
 import { createDocument } from '../services/api';
 import { useSnackbar } from 'notistack';
@@ -96,7 +95,6 @@ export default function CreateDocumentPage() {
             </Box>
         </Box>
     </Box>
-    <Copyright sx={{ mt: 8, mb: 4 }} />
     </Container>
   )
 }

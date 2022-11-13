@@ -3,6 +3,7 @@ import { styled } from '@mui/material/styles'
 import { SnackbarProvider } from 'notistack';
 import React from 'react'
 import NavAppBar from '../components/menu/NavAppBar'
+import Copyright from '../components/Copyright';
 
 const DrawerHeader = styled('div')(({ theme }) => ({
     display: 'flex',
@@ -24,6 +25,7 @@ export default function HomePage({children}) {
             </Container>
         </Box>
       </Box>  
+      <Copyright sx={{ mt: 8, mb: 4 }} />
     </SnackbarProvider>
 )
 }

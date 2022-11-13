@@ -105,7 +105,7 @@ export default function ListDocumentPage() {
   return (
     <Box>
       <Typography variant='h4' sx={{marginY: 4, fontWeight: 'bold'}}>Lista de Documentos</Typography>
-      <Box sx={{ height: '68vh', width: '100%', 
+      <Box sx={{ height: '56vh', width: '100%', 
         '& .header-column': 
           {
             backgroundColor: '#e8e8fa',
@@ -114,8 +114,8 @@ export default function ListDocumentPage() {
         <DataGrid
           rows={document}
           columns={columns}
-          pageSize={6}
-          rowsPerPageOptions={[6]}
+          pageSize={5}
+          rowsPerPageOptions={[5]}
           localeText={ptBR.components.MuiDataGrid.defaultProps.localeText}
           components={{
             Toolbar: GridToolbar,
