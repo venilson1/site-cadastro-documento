@@ -11,7 +11,11 @@ export default function NavAppBar() {
             <Container maxWidth={true}>
                 <Toolbar>
                     <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-                        Cadatro de Documentos
+                    <Link to="/">
+                        <Typography sx={{color: 'white'}} >
+                            Cadatro de Documentos
+                        </Typography>
+                    </Link>
                     </Typography>
                     <Box sx={{ flexGrow: 0, display: 'flex' }}>
                         <MenuItem>
