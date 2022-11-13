@@ -20,3 +20,7 @@ export const findDocumentById = async (id) => {
 export const findFileById = async (arquivoId) => {
   return api.get(`/api/documento/${arquivoId}/download`);
 };
+
+export const getProcess = async () => {
+  return api.get(`api/processo`);
+};

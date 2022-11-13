@@ -1,7 +1,25 @@
+import { useEffect, useState } from 'react'
+import { getProcess } from '../../services/api';
 import { FormControl, InputLabel, MenuItem, Select } from '@mui/material'
-import React from 'react'
 
 export default function SelectText({id, label, process, handleChange}) {
+
+  const [processes, setProcesses] = useState([]);
+  const [error, setError] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    (async () => {
+        try{
+          const response = await getProcess();
+          setProcesses(response.data)
+        }catch(error) {
+          setError(true)
+        } finally{
+          setIsLoading(false);
+        }
+    })();
+}, []);
 
   return (
     <FormControl fullWidth>
@@ -13,10 +31,11 @@ export default function SelectText({id, label, process, handleChange}) {
             label={label}
             onChange={handleChange}
         >
-            <MenuItem value={1}>A</MenuItem>
-            <MenuItem value={2}>B</MenuItem>
-            <MenuItem value={3}>C</MenuItem>
-            <MenuItem value={4}>D</MenuItem>
+          {processes.map(({id, nome}) => {
+            return (
+              <MenuItem key={id} value={id}>{nome}</MenuItem>
+            )
+          })}
         </Select>
     </FormControl>
   )
